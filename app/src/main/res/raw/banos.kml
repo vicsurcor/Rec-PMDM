@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Banos.kml</name>
+	<open>1</open>
+	<Schema name="Banos" id="Banos">
+		<SimpleField type="string" name="NOMBRE"></SimpleField>
+		<SimpleField type="string" name="CAUCE"></SimpleField>
+		<SimpleField type="string" name="LOCALIDAD"></SimpleField>
+		<SimpleField type="string" name="CALIDAD_DEL_AGUA"></SimpleField>
+		<SimpleField type="string" name="FICHA_INFORMATIVA"></SimpleField>
+	</Schema>
+	
+	<Style id="Calidad Excelente">
+      <BalloonStyle>
+        <text>
+		<![CDATA[ <h3> $[NOMBRE]</h3> 
+		<table style='font-size:small;
+		text-align:left;
+		border-collapse:collapse;cellpadding=5;'> 
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CAUCE </td>
+				<td align='left' valign='top'> $[CAUCE] </td>  
+			</tr>  
+			<tr align='left' valign='top'> 
+				<td align='left' valign='top'> LOCALIDAD </td>
+				<td align='left' valign='top'> $[LOCALIDAD] </td>
+			</tr>
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CALIDAD DEL AGUA </td>
+				<td align='left' valign='top'> $[CALIDAD_DEL_AGUA] </td>
+			</tr>  
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> FICHA INFORMATIVA </td>
+				<td align='left' valign='top'> $[FICHA_INFORMATIVA] </td>
+			</tr>
+		</table> ]]>
+		</text>
+      </BalloonStyle>
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href>
+        </Icon>
+        <hotSpot x="32" y="1" xunits="pixels" yunits="pixels" />
+      </IconStyle>
+    </Style>
+	<Style id="Calidad Buena">
+      <BalloonStyle>
+        <text>
+		<![CDATA[ <h3> $[NOMBRE]</h3> 
+		<table style='font-size:small;
+		text-align:left;
+		border-collapse:collapse;cellpadding=5;'> 
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CAUCE </td>
+				<td align='left' valign='top'> $[CAUCE] </td>  
+			</tr>  
+			<tr align='left' valign='top'> 
+				<td align='left' valign='top'> LOCALIDAD </td>
+				<td align='left' valign='top'> $[LOCALIDAD] </td>
+			</tr>
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CALIDAD DEL AGUA </td>
+				<td align='left' valign='top'> $[CALIDAD_DEL_AGUA] </td>
+			</tr>  
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> FICHA INFORMATIVA </td>
+				<td align='left' valign='top'> $[FICHA_INFORMATIVA] </td>
+			</tr>
+		</table> ]]>
+		</text>
+      </BalloonStyle>
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pushpin/ltblu-pushpin.png</href>
+        </Icon>
+        <hotSpot x="32" y="1" xunits="pixels" yunits="pixels" />
+      </IconStyle>
+    </Style>
+	<Style id="Calidad Insuficiente">
+      <BalloonStyle>
+        <text>
+		<![CDATA[ <h3> $[NOMBRE]</h3> 
+		<table style='font-size:small;
+		text-align:left;
+		border-collapse:collapse;cellpadding=5;'> 
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CAUCE </td>
+				<td align='left' valign='top'> $[CAUCE] </td>  
+			</tr>  
+			<tr align='left' valign='top'> 
+				<td align='left' valign='top'> LOCALIDAD </td>
+				<td align='left' valign='top'> $[LOCALIDAD] </td>
+			</tr>
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CALIDAD DEL AGUA </td>
+				<td align='left' valign='top'> $[CALIDAD_DEL_AGUA] </td>
+			</tr>  
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> FICHA INFORMATIVA </td>
+				<td align='left' valign='top'> $[FICHA_INFORMATIVA] </td>
+			</tr>
+		</table> ]]>
+		</text>
+      </BalloonStyle>
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href>
+        </Icon>
+        <hotSpot x="32" y="1" xunits="pixels" yunits="pixels" />
+      </IconStyle>
+    </Style>
+	<Style id="Calidad Sin Clasificar">
+      <BalloonStyle>
+        <text>
+		<![CDATA[ <h3> $[NOMBRE]</h3> 
+		<table style='font-size:small;
+		text-align:left;
+		border-collapse:collapse;cellpadding=5;'> 
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CAUCE </td>
+				<td align='left' valign='top'> $[CAUCE] </td>  
+			</tr>  
+			<tr align='left' valign='top'> 
+				<td align='left' valign='top'> LOCALIDAD </td>
+				<td align='left' valign='top'> $[LOCALIDAD] </td>
+			</tr>
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> CALIDAD DEL AGUA </td>
+				<td align='left' valign='top'> $[CALIDAD_DEL_AGUA] </td>
+			</tr>  
+			<tr bgcolor='#D4E4F3' align='left' valign='top'>
+				<td align='left' valign='top'> FICHA INFORMATIVA </td>
+				<td align='left' valign='top'> $[FICHA_INFORMATIVA] </td>
+			</tr>
+		</table> ]]>
+		</text>
+      </BalloonStyle>
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png</href>
+        </Icon>
+        <hotSpot x="32" y="1" xunits="pixels" yunits="pixels" />
+      </IconStyle>
+    </Style>
+	<Folder>
+		<name>Calidad Excelente</name>
+		<open>1</open>
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Manantial de Agua salada</SimpleData>
+					<SimpleData name="CAUCE">Manantial Agua Salada</SimpleData>
+					<SimpleData name="LOCALIDAD">Estella / Lizarra</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBManantialAguaSalada.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-2.037837606992435,42.66895949073081,0</coordinates>
+			</Point>
+		</Placemark>		
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Río Aragón en Carcastillo</SimpleData>
+					<SimpleData name="CAUCE">Río Aragón</SimpleData>
+					<SimpleData name="LOCALIDAD">Carcastillo</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBRioAragonCarcastillo.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.418625335852631,42.39672307937378,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Embalse de Alloz</SimpleData>
+					<SimpleData name="CAUCE">Embalse de Alloz</SimpleData>
+					<SimpleData name="LOCALIDAD">Lerate (Guesálaz / Gesalatz)</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBEmbalsedeAllozLerateGuesalaz.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.935663171645006,42.72235713481809,0</coordinates>
+			</Point>
+		</Placemark>
+	
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Embalse de Alloz en Úgar</SimpleData>
+					<SimpleData name="CAUCE">Embalse de Alloz</SimpleData>
+					<SimpleData name="LOCALIDAD">Úgar (Valle de Yerri / Deierri)</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBa%C3%B1o+Embalse+de+Alloz+Ugar.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.959066,42.714680,0</coordinates>
+			</Point>
+		</Placemark>
+
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Foz de Benasa</SimpleData>
+					<SimpleData name="CAUCE">Río Benasa</SimpleData>
+					<SimpleData name="LOCALIDAD">Navascués / Nabaskoze</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBFozdeBenasa.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.121769443392436,42.70695964883358,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Balsa de la Morea</SimpleData>
+					<SimpleData name="CAUCE">Balsa de la Morea</SimpleData>
+					<SimpleData name="LOCALIDAD">Beriáin</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBBalsaLaMorea.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.635443107964052,42.73117454837387,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Piscina de Uztárroz</SimpleData>
+					<SimpleData name="CAUCE">Río Uztárroz</SimpleData>
+					<SimpleData name="LOCALIDAD">Uztárroz / Uztarroze</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBRioUztarrozenUztarroz.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-0.941933207351089,42.8932733198606,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Río Urederra en Artavia</SimpleData>
+					<SimpleData name="CAUCE">Río Urederra</SimpleData>
+					<SimpleData name="LOCALIDAD">Artavia (Allín)</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBRioUrederraArtavia.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-2.081499571259168,42.73459836365132,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Balsa El Pulguer</SimpleData>
+					<SimpleData name="CAUCE">Balsa el Pulguer</SimpleData>
+					<SimpleData name="LOCALIDAD">Tudela</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBBalsaElPulguer.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.70668639637608,42.05349585697761,0</coordinates>
+			</Point>
+		</Placemark>		
+		<Placemark>
+			<styleUrl>#Calidad Excelente</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Embalse de Itoitz</SimpleData>
+					<SimpleData name="CAUCE">Río Urrobi</SimpleData>
+					<SimpleData name="LOCALIDAD">Arce / Artzi</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Excelente</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBanoEmbalsedeItoizArceV02.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.3758367921562011,42.86106613589306,0</coordinates>
+			</Point>
+		</Placemark>		
+	</Folder>
+	<Folder>
+		<name>Calidad Buena</name>
+		<open>1</open>
+		<Placemark>
+			<styleUrl>#Calidad Buena</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Río Esca en Burgui / Burgi</SimpleData>
+					<SimpleData name="CAUCE">Río Esca</SimpleData>
+					<SimpleData name="LOCALIDAD">Burgui / Burgi</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Buena</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBRioEscaBurgui.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.003875861167521,42.71886774241461,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#Calidad Buena</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Río Urederra en Zudaire</SimpleData>
+					<SimpleData name="CAUCE">Río Urederra</SimpleData>
+					<SimpleData name="LOCALIDAD">Zudaire (Amescoa Baja)</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Buena</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBRioUrederraZudaire.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-2.129256128376821,42.7776221408817,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#Calidad Buena</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#Banos">
+					<SimpleData name="NOMBRE">Río Araxes en Betelu</SimpleData>
+					<SimpleData name="CAUCE">Río Araxes</SimpleData>
+					<SimpleData name="LOCALIDAD">Betelu</SimpleData>
+					<SimpleData name="CALIDAD_DEL_AGUA">Buena</SimpleData>
+					<SimpleData name="FICHA_INFORMATIVA"><![CDATA[<a href="https://www.navarra.es/documents/48192/21138225/ZBRioAraxesBetelu.pdf" target="_blank">Ver ficha</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-1.972971868793132,43.02333633092906,0</coordinates>
+			</Point>
+		</Placemark>				
+	</Folder>
+</Document>
+</kml>
+
+
+

@@ -8,4 +8,8 @@ class ListaFav : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lista_fav)
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        this.finish()
+    }
 }

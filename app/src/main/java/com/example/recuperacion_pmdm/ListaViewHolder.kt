@@ -37,16 +37,13 @@ class ZonasAdapter (private val zonas: List<Zona>, tipo: String) : RecyclerView.
             nombre.text = zona.nombre
             localidad.text = zona.localidad
             if (zona.calidad == "Excelente"){
-                calidad.setBackgroundColor(Color.GREEN)
+                calidad.setBackgroundColor(Color.rgb(0,100,45))
             }
             if (zona.calidad == "Buena"){
-                calidad.setBackgroundColor(Color.YELLOW)
+                calidad.setBackgroundColor(Color.rgb(80,70,0))
             }
             if (zona.calidad == "Insuficiente") {
                 calidad.setBackgroundColor(Color.RED)
-            }
-            else {
-                calidad.setBackgroundColor(Color.GRAY)
             }
             coordenadas.text = zona.coordenadas
             if (tipo == "lista") {
