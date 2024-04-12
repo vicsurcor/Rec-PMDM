@@ -31,12 +31,11 @@
         android:layout_width="100dp"
         android:layout_height="70dp"
         android:layout_marginEnd="20dp"
-        android:src="@tools:sample/avatars"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/item_Nombre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/imagen1.png" />
+        app:srcCompat="@drawable/imagen1" />
 
     <TextView
         android:id="@+id/item_Nombre"
