@@ -7,6 +7,8 @@ import org.xmlpull.v1.XmlPullParserFactory
 
 class CrearLista {
 
+    val lista: MutableList<Zona> = mutableListOf()
+    val listaFot: List<Int> = listOf(R.drawable.imagen1)
 
     fun readKmlFile(resources: Resources, kmlResourceId: Int) {
         // Get InputStream for the KML file
@@ -25,9 +27,9 @@ class CrearLista {
 
     fun parseKml(parser: XmlPullParser) {
         var eventType = parser.eventType
-        var currentElement: String? = null // Keep track of the current XML element
-        var nombreValue: String? = null // To store the value of the NOMBRE element
-        var coordinatesValue: String? = null // To store the value of the coordinates element
+
+        var nombreValue: String? = null
+        var coordenadasValue: String? = null
         var localidadValue: String? = null
         var calidadValue: String? = null
 
@@ -35,22 +37,34 @@ class CrearLista {
             when (eventType) {
                 XmlPullParser.START_TAG -> {
                     // Store the name of the current element
-                    currentElement = parser.name
-                }
-                XmlPullParser.TEXT -> {
-                    // Check if the current element is NOMBRE or coordinates and retrieve their values
-                    if (currentElement == "SimpleData" && parser.getAttributeValue(null, "name") == "NOMBRE") {
-                        nombreValue = parser.text
+                    val currentElement = parser.name
+                    if (currentElement == "SimpleData") {
+                        val attributeName = parser.getAttributeValue(null, "name")
+                        when (attributeName) {
+                            "NOMBRE" -> nombreValue = parser.nextText()
+                            "LOCALIDAD" -> localidadValue = parser.nextText()
+                            "CALIDAD_DEL_AGUA" -> calidadValue = parser.nextText()
+                        }
                     } else if (currentElement == "coordinates") {
-                        coordinatesValue = parser.text
+                        coordenadasValue = parser.nextText()
+                        val coord = coordenadasValue.toString().split(",")
+                        coordenadasValue = "${coord[1]},${coord[0]}"
                     }
                 }
                 XmlPullParser.END_TAG -> {
-                    // Handle end tags if necessary
+                    // Check if it's the end of a Placemark, then add it to the list
+                    if (parser.name == "Placemark") {
+                        lista.add(Zona(nombreValue.toString(), localidadValue.toString(), calidadValue.toString(), coordenadasValue.toString(), listaFot.last()))
+                        // Reset values
+                        nombreValue = null
+                        localidadValue = null
+                        calidadValue = null
+                        coordenadasValue = null
+                    }
                 }
             }
-            // Move to the next XML event
             eventType = parser.next()
         }
     }
+
 }
