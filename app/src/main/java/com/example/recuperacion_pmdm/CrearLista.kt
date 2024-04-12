@@ -8,7 +8,16 @@ import org.xmlpull.v1.XmlPullParserFactory
 class CrearLista {
 
     val lista: MutableList<Zona> = mutableListOf()
-    val listaFot: List<Int> = listOf(R.drawable.imagen1)
+    val listaFot: MutableMap<String, Int> = mutableMapOf(
+        "Manantial de Agua salada" to R.drawable.imagen1,
+        "Río Aragón en Carcastillo" to R.drawable.imagen2,
+        "Embalse de Alloz" to R.drawable.imagen3,
+        "Embalse de Alloz en Úgar" to R.drawable.imagen4,
+        "Foz de Benasa" to R.drawable.imagen5,
+        "Balsa de la Morea" to R.drawable.imagen6,
+        "Piscina de Uztárroz" to R.drawable.imagen7
+    )
+
 
     fun readKmlFile(resources: Resources, kmlResourceId: Int) {
         // Get InputStream for the KML file
@@ -27,6 +36,8 @@ class CrearLista {
 
     fun parseKml(parser: XmlPullParser) {
         var eventType = parser.eventType
+
+
 
         var nombreValue: String? = null
         var coordenadasValue: String? = null
@@ -52,9 +63,14 @@ class CrearLista {
                     }
                 }
                 XmlPullParser.END_TAG -> {
-                    // Check if it's the end of a Placemark, then add it to the list
+                    // Check if it's the end of a Placemark
                     if (parser.name == "Placemark") {
-                        lista.add(Zona(nombreValue.toString(), localidadValue.toString(), calidadValue.toString(), coordenadasValue.toString(), listaFot.last()))
+                        val defaultImageResourceId = R.drawable.imagen1 // Provide your default image resource ID here
+                        val resourceId = listaFot[nombreValue.toString()] ?: defaultImageResourceId
+
+                        // Add the new Zona to the list
+                        lista.add(Zona(nombreValue.toString(), localidadValue.toString(), calidadValue.toString(), coordenadasValue.toString(), resourceId
+                        ))
                         // Reset values
                         nombreValue = null
                         localidadValue = null
