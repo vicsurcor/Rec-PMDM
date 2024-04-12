@@ -2,6 +2,7 @@ package com.example.recuperacion_pmdm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
@@ -25,7 +26,8 @@ class ListaZonas : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.rec_Zonas)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ZonasAdapter(data,"lista")
+        recyclerView.adapter = ZonasAdapter(data,"lista", this)
+
     }
 
     override fun onBackPressed() {
