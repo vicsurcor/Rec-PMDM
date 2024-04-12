@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#A89B9B">
+
+    <View
+        android:id="@+id/separador2"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="#101010"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/separador"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginBottom="2dp"
+        android:background="#101010"
+        app:layout_constraintBottom_toTopOf="@+id/item_Favoritos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/item_Imagen"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="20dp"
+        android:src="@tools:sample/avatars"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/item_Nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imagen1.png" />
+
+    <TextView
+        android:id="@+id/item_Nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="100dp"
+        android:text=" Nombre de la zona"
+        android:textColor="#070707"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/item_Calidad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119" />
+
+    <TextView
+        android:id="@+id/item_Localidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="76dp"
+        android:layout_weight="1"
+        android:text="Localidad de la zona"
+        android:textColor="#070707"
+        app:layout_constraintEnd_toStartOf="@+id/item_Calidad"
+        app:layout_constraintTop_toBottomOf="@+id/item_Nombre" />
+
+    <View
+        android:id="@+id/item_Calidad"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/item_Favoritos"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_favoritos_no"
+        app:layout_constraintBottom_toTopOf="@+id/item_Calidad"
+        app:layout_constraintEnd_toEndOf="@+id/item_Calidad"
+        app:layout_constraintStart_toStartOf="@+id/item_Calidad"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_Coordenadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Coordenadas de la zona"
+        android:textColor="#041E49"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/item_Localidad"
+        app:layout_constraintTop_toBottomOf="@+id/item_Localidad" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
