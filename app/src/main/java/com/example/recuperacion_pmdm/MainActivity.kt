@@ -11,12 +11,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
-        findViewById(R.id.boton_Zonas)
-        findViewById(R.id.boton_Favoritos)
+
+        zonas = findViewById(R.id.boton_Zonas)
+        favoritos = findViewById(R.id.boton_Favoritos)
 
         zonas.setOnClickListener {
-            intent = Intent(ListaZonas::)
+            val intent = Intent(this@MainActivity, ListaZonas::class.java)
+            startActivity(intent)
+        }
+        favoritos.setOnClickListener {
+            val intent = Intent(this@MainActivity, ListaFav::class.java)
+            startActivity(intent)
         }
     }
 
