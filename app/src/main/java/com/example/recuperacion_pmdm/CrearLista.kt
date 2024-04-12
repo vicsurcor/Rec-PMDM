@@ -20,25 +20,20 @@ class CrearLista {
 
 
     fun readKmlFile(resources: Resources, kmlResourceId: Int) {
-        // Get InputStream for the KML file
+
         val inputStream: InputStream = resources.openRawResource(kmlResourceId)
 
-        // Create XMLPullParser
         val factory = XmlPullParserFactory.newInstance()
         val parser = factory.newPullParser()
 
-        // Set input for the parser
         parser.setInput(inputStream, null)
 
-        // Start parsing the XML/KML file
         parseKml(parser)
     }
 
     fun parseKml(parser: XmlPullParser) {
+
         var eventType = parser.eventType
-
-
-
         var nombreValue: String? = null
         var coordenadasValue: String? = null
         var localidadValue: String? = null
@@ -47,7 +42,6 @@ class CrearLista {
         while (eventType != XmlPullParser.END_DOCUMENT) {
             when (eventType) {
                 XmlPullParser.START_TAG -> {
-                    // Store the name of the current element
                     val currentElement = parser.name
                     if (currentElement == "SimpleData") {
                         val attributeName = parser.getAttributeValue(null, "name")
@@ -63,15 +57,13 @@ class CrearLista {
                     }
                 }
                 XmlPullParser.END_TAG -> {
-                    // Check if it's the end of a Placemark
                     if (parser.name == "Placemark") {
-                        val defaultImageResourceId = R.drawable.imagen1 // Provide your default image resource ID here
+                        val defaultImageResourceId = R.drawable.imagen1
                         val resourceId = listaFot[nombreValue.toString()] ?: defaultImageResourceId
 
-                        // Add the new Zona to the list
                         lista.add(Zona(nombreValue.toString(), localidadValue.toString(), calidadValue.toString(), coordenadasValue.toString(), resourceId
                         ))
-                        // Reset values
+
                         nombreValue = null
                         localidadValue = null
                         calidadValue = null

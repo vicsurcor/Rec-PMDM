@@ -8,7 +8,6 @@ import androidx.room.RoomDatabase
 @Database(entities = [ZonasEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun zonaDao(): ZonaDao
-
     companion object{
         private const val DATABASE_NAME = "ZonasFav"
 

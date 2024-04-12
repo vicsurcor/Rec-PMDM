@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             dao.deleteAll()
         }
 
-
         zonas = findViewById(R.id.boton_Zonas)
         favoritos = findViewById(R.id.boton_Favoritos)
 
