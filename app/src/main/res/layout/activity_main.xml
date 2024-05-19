@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:text="Aplicación de seguimiento de zonas de baño naturales en Navarra"
+        android:text="@string/aplicaci_n_de_seguimiento_de_zonas_de_ba_o_naturales_en_navarra"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,13 +29,13 @@
         app:layout_constraintBottom_toTopOf="@+id/boton_Zonas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <Button
         android:id="@+id/boton_Zonas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista de zonas"
+        android:text="@string/lista_de_zonas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/boton_Favoritos"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,11 +47,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
-        android:text="Favoritos"
+        android:text="@string/favoritos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/boton_Zonas"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
         app:layout_constraintVertical_bias="0.593" />
 </androidx.constraintlayout.widget.ConstraintLayout>
