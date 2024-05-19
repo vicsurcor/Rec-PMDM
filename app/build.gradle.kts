@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.dokka")
 
     kotlin("kapt")
 }
@@ -36,8 +37,14 @@ android {
         jvmTarget = "1.8"
     }
 }
+tasks.dokkaHtml.configure {
+    outputDirectory.set(file("../documentation/html"))
+    suppressInheritedMembers.set(true)
+}
+
 
 dependencies {
+
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")

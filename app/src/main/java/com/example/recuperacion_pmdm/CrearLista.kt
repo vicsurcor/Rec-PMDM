@@ -5,9 +5,20 @@ import android.content.res.Resources
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 
+/**
+ * CrearLista class represents a utility for creating a list of Zona objects by parsing KML data.
+ * It also provides a map of image resources associated with Zona names.
+ */
 class CrearLista {
 
+    /**
+     * MutableList to store Zona objects.
+     */
     val lista: MutableList<Zona> = mutableListOf()
+
+    /**
+     * MutableMap to store Zona names and associated image resources.
+     */
     val listaFot: MutableMap<String, Int> = mutableMapOf(
         "Manantial de Agua salada" to R.drawable.imagen1,
         "Río Aragón en Carcastillo" to R.drawable.imagen2,
@@ -18,9 +29,13 @@ class CrearLista {
         "Piscina de Uztárroz" to R.drawable.imagen7
     )
 
-
+    /**
+     * Reads KML file from resources and parses it to create Zona objects.
+     *
+     * @param resources The Resources object to access app resources.
+     * @param kmlResourceId The resource ID of the KML file.
+     */
     fun readKmlFile(resources: Resources, kmlResourceId: Int) {
-
         val inputStream: InputStream = resources.openRawResource(kmlResourceId)
 
         val factory = XmlPullParserFactory.newInstance()
@@ -31,8 +46,12 @@ class CrearLista {
         parseKml(parser)
     }
 
+    /**
+     * Parses the KML data to create Zona objects.
+     *
+     * @param parser The XmlPullParser object for parsing KML data.
+     */
     fun parseKml(parser: XmlPullParser) {
-
         var eventType = parser.eventType
         var nombreValue: String? = null
         var coordenadasValue: String? = null
@@ -61,8 +80,15 @@ class CrearLista {
                         val defaultImageResourceId = R.drawable.imagen1
                         val resourceId = listaFot[nombreValue.toString()] ?: defaultImageResourceId
 
-                        lista.add(Zona(nombreValue.toString(), localidadValue.toString(), calidadValue.toString(), coordenadasValue.toString(), resourceId
-                        ))
+                        lista.add(
+                            Zona(
+                                nombreValue.toString(),
+                                localidadValue.toString(),
+                                calidadValue.toString(),
+                                coordenadasValue.toString(),
+                                resourceId
+                            )
+                        )
 
                         nombreValue = null
                         localidadValue = null
@@ -74,5 +100,4 @@ class CrearLista {
             eventType = parser.next()
         }
     }
-
 }
