@@ -19,7 +19,7 @@ class MainActivityTest {
     fun test_MainActivity() {
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
 
-        onView(withId(R.layout.activity_main))
+        onView(withId(R.layout.activity_mainmenu))
 
     }
     @Test

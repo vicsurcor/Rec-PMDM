@@ -8,4 +8,5 @@ plugins {
 dependencies {
 
     dokkaPlugin("org.jetbrains.dokka:android-documentation-plugin:1.9.10")
+
 }
