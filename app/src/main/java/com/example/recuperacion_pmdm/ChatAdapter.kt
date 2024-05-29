@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ChatAdapter(private val messages: List<Message>) : RecyclerView.Adapter<ChatAdapter.MessageViewHolder>() {
+class ChatAdapter(private val messages: List<ChatMessage>) : RecyclerView.Adapter<ChatAdapter.MessageViewHolder>() {
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewUser: TextView = itemView.findViewById(R.id.userName)
@@ -20,8 +20,8 @@ class ChatAdapter(private val messages: List<Message>) : RecyclerView.Adapter<Ch
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
         val message = messages[position]
-        holder.textViewUser.text = message.user
-        holder.textViewMessage.text = message.text
+        holder.textViewUser.text = message.username
+        holder.textViewMessage.text = message.message
 
     }
 

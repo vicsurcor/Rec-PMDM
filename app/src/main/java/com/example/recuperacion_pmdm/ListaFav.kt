@@ -60,9 +60,10 @@ class ListaFav : AppCompatActivity() {
             }
         }
     }
-    fun toChat() {
+    fun toChat(name: String) {
         val intent = Intent(this@ListaFav, ChatActivity::class.java)
         intent.putExtra("username", username)
+        intent.putExtra("location", name)
         startActivity(intent)
     }
 

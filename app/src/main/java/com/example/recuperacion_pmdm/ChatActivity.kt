@@ -3,6 +3,7 @@ package com.example.recuperacion_pmdm
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import retrofit2.Response
 class ChatActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var editTextMessage: EditText
+    private lateinit var locationText: TextView
     private lateinit var buttonSend: Button
 
     private val messages = mutableListOf<ChatMessage>()
@@ -22,13 +24,15 @@ class ChatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val username = intent.getStringExtra("username") ?: "Unknown User"
+        val location = intent.getStringExtra("location") ?: "Unknown Location"
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
         recyclerView = findViewById(R.id.recyclerView)
         editTextMessage = findViewById(R.id.editTextMessage)
+        locationText = findViewById(R.id.locationName)
         buttonSend = findViewById(R.id.buttonSend)
-
+        locationText.text = location
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = chatAdapter
 

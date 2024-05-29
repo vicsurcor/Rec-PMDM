@@ -118,7 +118,7 @@ class ZonasAdapter(private val zonas: List<Zona>, tipo: String, context: Context
                 }
             } else {
                 itemView.setOnClickListener {
-                    (context as? ListaFav)?.toChat()
+                    (context as? ListaFav)?.toChat(zona.nombre)
                 }
                 favoritos.setImageResource(R.drawable.ic_favoritos_si)
                 favoritos.setOnClickListener {
