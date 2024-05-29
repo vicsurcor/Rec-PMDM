@@ -6,27 +6,52 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        val editTextEmail: EditText = findViewById(R.id.editTextEmail)
-        val editTextUsername: EditText = findViewById(R.id.editTextUsername)
-        val editTextPassword: EditText = findViewById(R.id.editTextPassword)
-        val buttonSignUp: Button = findViewById(R.id.buttonSignUp)
+        val apiService = RetrofitClient.instance.create(ApiService::class.java)
+        val signUpButton: Button = findViewById(R.id.buttonSignUp)
 
-        buttonSignUp.setOnClickListener {
-            val email = editTextEmail.text.toString().trim()
-            val username = editTextUsername.text.toString().trim()
-            val password = editTextPassword.text.toString().trim()
 
-            // Add validation and sign-up logic here
+        signUpButton.setOnClickListener {
+            val username = findViewById<EditText>(R.id.editTextUsername).text.toString()
+            val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
+            val password = findViewById<EditText>(R.id.editTextPassword).text.toString()
 
-            Toast.makeText(this, "Signed Up", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this@SignUpActivity, MainMenuActivity::class.java)
-            startActivity(intent)
+
+            val signUpRequest = User(username, email, password)
+            apiService.register(signUpRequest).enqueue(object : Callback<ApiResponse> {
+                override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(
+                            this@SignUpActivity,
+                            response.body()?.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        val intent = Intent(this@SignUpActivity, MainMenuActivity::class.java)
+                        intent.putExtra("username", username)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this@SignUpActivity,
+                            "Registration failed",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+                    Toast.makeText(this@SignUpActivity, "Error: ${t.message}", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            })
         }
     }
 }

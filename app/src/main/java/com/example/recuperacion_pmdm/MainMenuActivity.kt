@@ -38,6 +38,8 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainmenu)
 
+        val username = intent.getStringExtra("username") ?: "Unknown User"
+
         // Initialize the application database
         appDatabase = AppDatabase.getInstance(this)
 
@@ -60,6 +62,7 @@ class MainMenuActivity : AppCompatActivity() {
         // Set click listener for "Favoritos" button to navigate to ListaFav activity
         favoritos.setOnClickListener {
             val intent = Intent(this@MainMenuActivity, ListaFav::class.java)
+            intent.putExtra("username", username)
             startActivity(intent)
         }
     }

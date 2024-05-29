@@ -5,10 +5,10 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -22,8 +22,8 @@ import kotlinx.coroutines.launch
  * @property tipo The type of adapter, whether it's for a regular list or a favorites list.
  * @property context The context of the application or activity.
  */
-class ZonasAdapter(private val zonas: List<Zona>, tipo: String, context: Context) :
-    RecyclerView.Adapter<ZonasAdapter.ViewHolder>() {
+class ZonasAdapter(private val zonas: List<Zona>, tipo: String, context: Context) : RecyclerView.Adapter<ZonasAdapter.ViewHolder>() {
+
 
     /**
      * The type of adapter.
@@ -74,6 +74,7 @@ class ZonasAdapter(private val zonas: List<Zona>, tipo: String, context: Context
      * @property context The context of the application or activity.
      */
     class ViewHolder(view: View, tipo: String, context: Context) : RecyclerView.ViewHolder(view) {
+
         val nombre: TextView = view.findViewById(R.id.item_Nombre)
         val localidad: TextView = view.findViewById(R.id.item_Localidad)
         val calidad: View = view.findViewById(R.id.item_Calidad)
@@ -116,6 +117,9 @@ class ZonasAdapter(private val zonas: List<Zona>, tipo: String, context: Context
                     }
                 }
             } else {
+                itemView.setOnClickListener {
+                    (context as? ListaFav)?.toChat()
+                }
                 favoritos.setImageResource(R.drawable.ic_favoritos_si)
                 favoritos.setOnClickListener {
                     favoritos.setImageResource(R.drawable.ic_favoritos_no)
@@ -128,5 +132,6 @@ class ZonasAdapter(private val zonas: List<Zona>, tipo: String, context: Context
             }
             imagen.setImageResource(zona.imagen)
         }
+
     }
 }
