@@ -44,7 +44,7 @@ class ChatActivity : AppCompatActivity() {
             val messageText = editTextMessage.text.toString()
 
             if (messageText.isNotBlank()) {
-                val message = ChatMessage(username = username, message = messageText)
+                val message = ChatMessage(username = username, location = location, message = messageText)
                 sendMessage(message)
                 editTextMessage.text.clear()
             }
